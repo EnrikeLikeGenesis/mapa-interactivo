@@ -11,3 +11,12 @@ L.marker([-34.6037, -58.3816])
 map.on('click', function(e) {
    alert("Lat: " + e.latlng.lat + " Lng: " + e.latlng.lng);
 });
+let puntos = [];
+map.on('click', function(e) {
+   puntos.push([e.latlng.lat, e.latlng.lng]);
+
+
+   if (puntos.length === 2) {
+       L.polyline(puntos, { color: 'blue' }).addTo(map);
+   }
+});
